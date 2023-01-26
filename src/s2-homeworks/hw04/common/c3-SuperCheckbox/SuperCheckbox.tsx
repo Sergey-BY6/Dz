@@ -30,6 +30,12 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
         // задачка на написание онченджа
         if (onChangeChecked) {
             onChangeChecked(e.currentTarget.checked)
+            // onChangeChecked(!restProps.checked)
+            console.log("hi")
+        }
+        if (onChange) {
+            onChange(e)
+            console.log("hi")
         }
     }
 
