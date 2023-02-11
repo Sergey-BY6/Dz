@@ -11,7 +11,7 @@ import s from './HW6.module.css'
  * 3 - сделать стили в соответствии с дизайном
  */
 
-const HW6 = () => {
+export const HW6 = () => {
     const [value, setValue] = useState<string>('')
 
     const save = () => {
@@ -19,7 +19,7 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-
+        setValue(restoreState<string>('hw6-editable-span-value', value))
     }
 
     return (

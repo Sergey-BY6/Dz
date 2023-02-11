@@ -24,5 +24,8 @@
 .checkboxes {
     display: flex;
     flex-direction: column;
+
+    align-self: flex-start;
+
     gap: 36px;
 }

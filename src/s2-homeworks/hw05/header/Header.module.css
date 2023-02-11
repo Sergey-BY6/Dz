@@ -6,7 +6,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: absolute;
+    /*position: absolute;*/
+
+    position: fixed;
+    z-index:  99;
+
+
     width: 100%;
     height: 60px;
     left: 0px;
