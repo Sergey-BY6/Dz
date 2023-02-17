@@ -1,15 +1,20 @@
 .radio {
 }
 
-.radio::before {
+.radio::before {background: #000000;
 }
 
 
 .radio:checked::before {
+
 }
 
 .label {
+    height: 32px;
 }
 
 .options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
 }
