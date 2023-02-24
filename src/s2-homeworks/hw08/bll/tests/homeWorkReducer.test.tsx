@@ -22,6 +22,11 @@ test('sort name up', () => {
     })
 
     expect(newState[0]._id).toBe(1)
+    expect(newState[1]._id).toBe(3)
+    expect(newState[2]._id).toBe(4)
+    expect(newState[3]._id).toBe(5)
+    expect(newState[4]._id).toBe(2)
+    expect(newState[5]._id).toBe(0)
 })
 test('sort name down', () => {
     const newState = homeWorkReducer(initialState, {
@@ -30,6 +35,11 @@ test('sort name down', () => {
     })
 
     expect(newState[0]._id).toBe(0)
+    expect(newState[1]._id).toBe(2)
+    expect(newState[2]._id).toBe(5)
+    expect(newState[3]._id).toBe(4)
+    expect(newState[4]._id).toBe(3)
+    expect(newState[5]._id).toBe(1)
 })
 test('check age 18', () => {
     const newState = homeWorkReducer(initialState, {
@@ -38,4 +48,8 @@ test('check age 18', () => {
     })
 
     expect(newState.length).toBe(4)
+    expect(newState[0]._id).toBe(1)
+    expect(newState[1]._id).toBe(3)
+    expect(newState[2]._id).toBe(4)
+    expect(newState[3]._id).toBe(5)
 })
