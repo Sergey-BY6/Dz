@@ -59,6 +59,7 @@ const HW8 = () => {
             <div className={s2.hw}>
                 <div className={s.container}>
                     <div className={s.buttonsContainer}>
+
                         <SuperButton
                             id={'hw8-button-up'}
                             onClick={sortUp}
@@ -66,6 +67,8 @@ const HW8 = () => {
                         >
                             Sort up
                         </SuperButton>
+
+
                         <SuperButton
                             id={'hw8-button-down'}
                             onClick={sortDown}
@@ -73,6 +76,8 @@ const HW8 = () => {
                         >
                             Sort down
                         </SuperButton>
+
+
                         <SuperButton
                             id={'hw8-button-18'}
                             onClick={check18}
@@ -80,6 +85,7 @@ const HW8 = () => {
                         >
                             Check 18+
                         </SuperButton>
+
                     </div>
 
                     <table id={'hw8-users'} className={s.users}>

@@ -22,6 +22,7 @@
 .default {
     color: white;
     background-color: #0066cc;
+    border: 1px solid #0066cc
     /*width: 150px;*/
     /*height: 30px;*/
     /*font-size: 20px;*/
