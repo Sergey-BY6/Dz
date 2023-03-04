@@ -7,8 +7,9 @@
 }
 
 .disabled {
-    color: steelblue;
-    background-color: #004d99;
+    color: white;
+    background-color: #7697d5;
+    border: 1px solid #0066cc;
     opacity: 0.5;
 }
 
