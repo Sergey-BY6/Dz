@@ -1,24 +1,14 @@
 .container {
 }
 
-.wrapper1 {
-    width: 200px;
+.wrapper {
     display: flex;
     flex-direction: row;
-    /*justify-content: space-between;*/
     margin: 30px 30px 30px 30px;
 }
 
-.wrapper2 {
-    width: 222px;
-    display: flex;
-    flex-direction: row;
-    /*justify-content: space-between;*/
-    margin: 30px 30px 30px 30px;
-}
 
 .number1 {
-    /*margin: 15px 15px 15px 15px;*/
     position: relative;
     right: 20px;
     top: 3px;
@@ -27,7 +17,6 @@
 }
 
 .number2 {
-    /*margin: 15px 15px 15px 15px;*/
     position: relative;
     left: 20px;
     font-size: 20px;

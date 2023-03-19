@@ -31,7 +31,7 @@ function HW11() {
 
             <div className={s2.hw}>
                 <div className={s.container}>
-                    <div className={s.wrapper1}>
+                    <div className={s.wrapper}>
                         <span id={'hw11-value'} className={s.number1}>{value1}</span>
                         <SuperRange
                             id={'hw11-single-slider'}
@@ -40,7 +40,7 @@ function HW11() {
                             onChange={change}
                         />
                     </div>
-                    <div className={s.wrapper2}>
+                    <div className={s.wrapper}>
                         <span id={'hw11-value-1'} className={s.number1}>{value1}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
