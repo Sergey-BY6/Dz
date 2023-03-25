@@ -12,6 +12,10 @@ import {changeThemeId} from './bll/themeReducer'
 * 4 - передать пропсы в SuperSelect
 * */
 
+type ThemeIdType = {
+    theme: { themeId: number }
+}
+
 const themes = [
     {id: 1, value: 'light'},
     {id: 2, value: 'blue'},
@@ -20,10 +24,12 @@ const themes = [
 
 const HW12 = () => {
     // взять ид темы из редакса
-    const themeId = 1
+    const themeId = useSelector<ThemeIdType, number>(state => state.theme.themeId)
+    const dispatch = useDispatch()
+    console.log(themeId)
 
-    const change = (id: any) => { // дописать функцию
-
+    const change = (id: number) => { // дописать функцию
+        dispatch(changeThemeId(id))
     }
 
     useEffect(() => {
@@ -31,7 +37,7 @@ const HW12 = () => {
     }, [themeId])
 
     return (
-        <div id={'hw12'}>
+        <div id={'hw12'} className={s.main}>
             <div id={'hw12-text'} className={s2.hwTitle}>
                 Homework #12
             </div>
@@ -41,7 +47,8 @@ const HW12 = () => {
                     id={'hw12-select-theme'}
                     className={s.select}
                     // сделать переключение тем
-
+                    options={themes}
+                    onChangeOption={change}
                 />
             </div>
         </div>

@@ -18,6 +18,15 @@ html {
     color: var(--color);
 }
 
-.select {
-
+.main {
+    margin-bottom: 450px;
 }
+
+.select {
+/*height: 35px;*/
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
