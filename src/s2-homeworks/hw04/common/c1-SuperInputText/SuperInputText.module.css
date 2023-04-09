@@ -1,5 +1,5 @@
 .input:focus {
-    border: 1px solid #1692E4;
+    border: 2px solid #1692E4;
 }
 
 .input {
@@ -8,6 +8,18 @@
     height: 35px;
     border-radius: 3px;
     /*border: 1px solid #D1D1D1;*/
+
+
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
 
 }
 

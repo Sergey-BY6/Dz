@@ -1,7 +1,25 @@
-.tech {
 
+.main {
+    margin-bottom: 450px;
+}
+
+.tech {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
 }
 
 .loading {
-
+    width: 330px;
+    margin: 5px 0 0 282px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4D4D4D;
 }
+
+
