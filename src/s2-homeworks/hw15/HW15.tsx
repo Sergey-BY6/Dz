@@ -55,7 +55,27 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
+                console.log(res)
+                console.log(params)
+                console.log(searchParams)
+                if (res) {
+                    console.log(res.data.techs)
+                    // if (sort === "") {
+                    //     setTechs(res.data.techs)
+                    // }
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                    setLoading(false)
+                    // if (sort === "1tech") {
+                    //     debugger
+                    //     techs.sort((a,b) => a.tech.localeCompare(b.tech))
+                    // }
+                    // if (sort === "0tech") {
+                    //     debugger
+                    //     techs.sort((a,b) => b.tech.localeCompare(a.tech))
+                    // }
 
+                }
                 //
             })
     }
@@ -70,16 +90,33 @@ const HW15 = () => {
         // setSearchParams(
 
         //
+
+        console.log(newPage)
+        console.log(newCount)
+
+        setPage(newPage)
+        setCount(newCount)
+
+        sendQuery({page: newPage, count: newCount})
+        // setSearchParams(newPage.toString())
+        setSearchParams(`page=${newPage}&count=${newCount}`)
+        //
+
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
+        console.log("sortttttt" + " " + newSort)
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        sendQuery({page: page, count: count})
+        // setSearchParams("1")
+        setSearchParams(`page=${1}&count=${count}`)
 
-        // sendQuery(
-        // setSearchParams(
+        // newSort === "1tech" ? techs.sort((a,b) => a.tech.localeCompare(b.tech))
+        //     : (newSort === "0tech" ? techs.sort((a,b) => b.tech.localeCompare(a.tech))
+        //         : techs.sort((a,b) => a.tech.localeCompare(b.tech)))
 
         //
     }
@@ -104,7 +141,7 @@ const HW15 = () => {
     ))
 
     return (
-        <div id={'hw15'}>
+        <div id={'hw15'} className={s.main}>
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
