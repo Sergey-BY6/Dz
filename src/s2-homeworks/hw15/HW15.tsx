@@ -60,20 +60,20 @@ const HW15 = () => {
                 console.log(searchParams)
                 if (res) {
                     console.log(res.data.techs)
-                    // if (sort === "") {
-                    //     setTechs(res.data.techs)
-                    // }
-                    setTechs(res.data.techs)
+                    if (sort === "") {
+                        setTechs(res.data.techs)
+                    }
+                    // setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                     setLoading(false)
-                    // if (sort === "1tech") {
-                    //     debugger
-                    //     techs.sort((a,b) => a.tech.localeCompare(b.tech))
-                    // }
-                    // if (sort === "0tech") {
-                    //     debugger
-                    //     techs.sort((a,b) => b.tech.localeCompare(a.tech))
-                    // }
+                    if (sort === "1tech") {
+                        debugger
+                        techs.sort((a,b) => a.tech.localeCompare(b.tech))
+                    }
+                    if (sort === "0tech") {
+                        debugger
+                        techs.sort((a,b) => b.tech.localeCompare(a.tech))
+                    }
 
                 }
                 //
