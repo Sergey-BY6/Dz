@@ -55,25 +55,16 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
+                // debugger
                 console.log(res)
                 console.log(params)
                 console.log(searchParams)
                 if (res) {
                     console.log(res.data.techs)
-                    if (sort === "") {
-                        setTechs(res.data.techs)
-                    }
-                    // setTechs(res.data.techs)
+
+                    setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                     setLoading(false)
-                    if (sort === "1tech") {
-                        // debugger
-                        setTechs(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
-                    }
-                    if (sort === "0tech") {
-                        // debugger
-                        setTechs(techs.sort((a,b) => a.tech.localeCompare(b.tech)))
-                    }
 
                 }
                 //
@@ -82,15 +73,11 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
         // setPage(
         // setCount(
-
         // sendQuery(
         // setSearchParams(
-
         //
-
         console.log(newPage)
         console.log(newCount)
 
@@ -100,20 +87,53 @@ const HW15 = () => {
         sendQuery({page: newPage, count: newCount})
         // setSearchParams(newPage.toString())
         setSearchParams(`page=${newPage}&count=${newCount}`)
+
         //
 
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-        console.log("sortttttt" + " " + newSort)
+        // debugger
+        console.log('sortttttt' + ' ' + newSort)
+
+        // const foo = () => newSort
         setSort(newSort)
+
+
         setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        sendQuery({page: page, count: count})
-        // setSearchParams("1")
+
+        // sendQuery({page: page, count: count})
         setSearchParams(`page=${1}&count=${count}`)
 
+        if (newSort === '') {
+            sendQuery({page: page, count: count})
+        }
+        if (newSort === '1tech') {
+            // debugger
+            setTechs(techs.sort((a, b) => b.tech.localeCompare(a.tech)))
+            console.log(techs.sort((a, b) => b.tech.localeCompare(a.tech)))
+        }
+        if (newSort === '0tech') {
+            // debugger
+            setTechs(techs.sort((a, b) => a.tech.localeCompare(b.tech)))
+        }
+
+        // if (sort === "") {
+        //     debugger
+        //     setTechs(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
+        //     console.log(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
+        // }
+        // if (sort === "1tech") {
+        //     debugger
+        //     setTechs(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
+        //     console.log(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
+        // }
+        // if (sort === "0tech") {
+        //     debugger
+        //     setTechs(techs.sort((a,b) => a.tech.localeCompare(b.tech)))
+        // }
         // newSort === "1tech" ? techs.sort((a,b) => a.tech.localeCompare(b.tech))
         //     : (newSort === "0tech" ? techs.sort((a,b) => b.tech.localeCompare(a.tech))
         //         : techs.sort((a,b) => a.tech.localeCompare(b.tech)))
