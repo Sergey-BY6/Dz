@@ -84,9 +84,10 @@ const HW15 = () => {
         setPage(newPage)
         setCount(newCount)
 
-        sendQuery({page: newPage, count: newCount})
+        sendQuery({page: newPage, count: newCount, sort})
         // setSearchParams(newPage.toString())
-        setSearchParams(`page=${newPage}&count=${newCount}`)
+        // setSearchParams(`page=${newPage}&count=${newCount}`)
+        setSearchParams({page: newPage.toString(), count: newCount.toString(), sort})
 
         //
 
@@ -104,21 +105,27 @@ const HW15 = () => {
         setPage(1) // при сортировке сбрасывать на 1 страницу
 
 
-        // sendQuery({page: page, count: count})
-        setSearchParams(`page=${1}&count=${count}`)
+        sendQuery({page: 1, count: count, sort: newSort})
+        setSearchParams({page: page.toString(), count: count.toString(), sort: newSort})
 
-        if (newSort === '') {
-            sendQuery({page: page, count: count})
-        }
-        if (newSort === '1tech') {
-            // debugger
-            setTechs(techs.sort((a, b) => b.tech.localeCompare(a.tech)))
-            console.log(techs.sort((a, b) => b.tech.localeCompare(a.tech)))
-        }
-        if (newSort === '0tech') {
-            // debugger
-            setTechs(techs.sort((a, b) => a.tech.localeCompare(b.tech)))
-        }
+        //
+        // if (newSort === '') {
+        //     // debugger
+        //     console.log(techs)
+        // }
+        // if (newSort === '1tech') {
+        //     // debugger
+        //     let copy = techs
+        //     sendQuery({page: 1, count: count})
+        //     setTechs(copy.sort((a, b) => b.tech.localeCompare(a.tech)))
+        //     console.log(copy.sort((a, b) => b.tech.localeCompare(a.tech)))
+        // }
+        // if (newSort === '0tech') {
+        //     // debugger
+        //     let copy = techs
+        //     setTechs(copy.sort((a, b) => a.tech.localeCompare(b.tech)))
+        //     console.log(copy.sort((a, b) => a.tech.localeCompare(b.tech)))
+        // }
 
         // if (sort === "") {
         //     debugger
