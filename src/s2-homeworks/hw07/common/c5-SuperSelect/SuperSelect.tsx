@@ -41,8 +41,6 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
             onChangeOption(+e.currentTarget.value)
         }
 
-
-        // делал я 04/06/2023
         if(onChange) {
             onChange(e)
         }

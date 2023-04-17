@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import preloader from "./common/icon/preloader.svg"
 
 /*
 * 1 - дописать SuperPagination
@@ -14,6 +15,8 @@ import SuperSort from './common/c10-SuperSort/SuperSort'
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW15 в HW5/pages/JuniorPlus
 * */
+
+const preload = <img  src={preloader} alt={"image"} style={{width: "120px", height: "120px"}}/>
 
 type TechType = {
     id: number
@@ -55,97 +58,29 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
-                // debugger
-                console.log(res)
-                console.log(params)
-                console.log(searchParams)
                 if (res) {
-                    console.log(res.data.techs)
-
                     setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                     setLoading(false)
-
                 }
-                //
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-        // setPage(
-        // setCount(
-        // sendQuery(
-        // setSearchParams(
-        //
-        console.log(newPage)
-        console.log(newCount)
-
         setPage(newPage)
         setCount(newCount)
-
         sendQuery({page: newPage, count: newCount, sort})
-        // setSearchParams(newPage.toString())
-        // setSearchParams(`page=${newPage}&count=${newCount}`)
         setSearchParams({page: newPage.toString(), count: newCount.toString(), sort})
-
         //
-
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-        // debugger
-        console.log('sortttttt' + ' ' + newSort)
-
-        // const foo = () => newSort
         setSort(newSort)
-
-
         setPage(1) // при сортировке сбрасывать на 1 страницу
-
-
         sendQuery({page: 1, count: count, sort: newSort})
         setSearchParams({page: page.toString(), count: count.toString(), sort: newSort})
-
-        //
-        // if (newSort === '') {
-        //     // debugger
-        //     console.log(techs)
-        // }
-        // if (newSort === '1tech') {
-        //     // debugger
-        //     let copy = techs
-        //     sendQuery({page: 1, count: count})
-        //     setTechs(copy.sort((a, b) => b.tech.localeCompare(a.tech)))
-        //     console.log(copy.sort((a, b) => b.tech.localeCompare(a.tech)))
-        // }
-        // if (newSort === '0tech') {
-        //     // debugger
-        //     let copy = techs
-        //     setTechs(copy.sort((a, b) => a.tech.localeCompare(b.tech)))
-        //     console.log(copy.sort((a, b) => a.tech.localeCompare(b.tech)))
-        // }
-
-        // if (sort === "") {
-        //     debugger
-        //     setTechs(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
-        //     console.log(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
-        // }
-        // if (sort === "1tech") {
-        //     debugger
-        //     setTechs(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
-        //     console.log(techs.sort((a,b) => b.tech.localeCompare(a.tech)))
-        // }
-        // if (sort === "0tech") {
-        //     debugger
-        //     setTechs(techs.sort((a,b) => a.tech.localeCompare(b.tech)))
-        // }
-        // newSort === "1tech" ? techs.sort((a,b) => a.tech.localeCompare(b.tech))
-        //     : (newSort === "0tech" ? techs.sort((a,b) => b.tech.localeCompare(a.tech))
-        //         : techs.sort((a,b) => a.tech.localeCompare(b.tech)))
-
-        //
     }
 
     useEffect(() => {
@@ -171,8 +106,8 @@ const HW15 = () => {
         <div id={'hw15'} className={s.main}>
             <div className={s2.hwTitle}>Homework #15</div>
 
-            <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+            <div className={`${s2.hw} ${idLoading ? s.mainBlockOpacity: s.mainBlock}`}>
+                {idLoading && <div id={'hw15-loading'} className={s.loading}>{preload}</div>}
 
                 <SuperPagination
                     page={page}
@@ -183,12 +118,12 @@ const HW15 = () => {
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        tech
+                        Tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        developer
+                        Developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
